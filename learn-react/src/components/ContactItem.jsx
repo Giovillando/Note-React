@@ -2,13 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function ContactItem({ contact, onDelete, onArchive }) {
-  // Tambahkan onArchive sebagai props
-
+function ContactItem({ contact }) {
   return (
     <div className="note">
       <h3>
-        <Link to={`/contacts/${contact.id}`}>{contact.title}</Link>{" "}
+        <Link to={`/contacts/${contact.id}`}>{contact.title}</Link>
       </h3>
       <p>Creation date: {contact.createdAt}</p>
       <p>{contact.body}</p>
@@ -21,9 +19,8 @@ ContactItem.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired, // Tambahkan properti createdAt
   }).isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onArchive: PropTypes.func.isRequired, // Tambahkan propType untuk onArchive
 };
 
 export default ContactItem;

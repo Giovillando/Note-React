@@ -12,7 +12,7 @@ function ArchivePage() {
 
   return (
     <div>
-      <h2>Archived Contacts</h2>
+      <h2>Archived Note</h2>
       {archivedContacts.length === 0 ? (
         <p>No archived contacts found.</p>
       ) : (

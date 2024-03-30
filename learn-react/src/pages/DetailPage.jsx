@@ -34,7 +34,7 @@ function DetailPage() {
       <h2>Contact Detail</h2>
       <ContactDetail contact={contact} />
       <ArchiveButton onClick={handleArchive} />
-      <DeleteButton id={id} onDelete={handleDelete} />
+      <DeleteButton onDelete={handleDelete} /> {/* Removed id prop */}
     </div>
   );
 }
