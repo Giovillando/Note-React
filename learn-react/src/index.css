@@ -1,0 +1,186 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background-color: rgb(31, 29, 29);
+  color: aliceblue;
+  border-color: aqua;
+  box-sizing: border-box;
+  text-align: justify;
+  padding: 10px;
+  border: 10px;
+  margin: 30px;
+}
+
+.contact-app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  color: #fefeff;
+  margin-bottom: 20px;
+}
+
+.contact-app h1 {
+  font-weight: 10px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 30px;
+  margin-bottom: 32px;
+  display: contents;
+  margin-left: 40px;
+  background-color: yellow;
+}
+
+.contact-app h3 {
+  text-align: right;
+  background-color: antiquewhite;
+  border: #007bff;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 2px;
+}
+
+.contact-app p {
+  background-color: rgb(223, 213, 76);
+  color: #0056b3;
+  border: #007bff;
+  border-radius: 3px;
+  box-shadow: #ffffff;
+  border-color: azure;
+  padding: 3px;
+  margin: 2px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin: 34px 0;
+  border: 3cap solid rgb(0, 221, 221);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: justify;
+}
+
+.contact-item__image img {
+  width: 64px;
+  border-radius: 50%;
+}
+
+.contact-item__title {
+  padding: 4px 0;
+}
+
+.contact-item__username {
+  font-weight: lighter;
+}
+
+.contact-item__delete {
+  padding: 8px;
+  font-size: 18px;
+  background-color: orangered;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-item__archive {
+  padding: 8px;
+  font-size: 18px;
+  background-color: rgba(255, 238, 0, 0.938);
+  color: rgb(0, 0, 0);
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-input {
+  border: 1px dashed black;
+  padding: 16px;
+  margin: 14px 0;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+.contact-input form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-input .tag {
+  box-sizing: border-box;
+}
+
+.contact-input input[type="text"],
+.contact-input textarea {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-input input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  font-family: "Inter", sans-serif;
+}
+
+.contact-input button {
+  width: 100%;
+  padding: 8px;
+  font-family: "Inter", sans-serif;
+}
+.contact-input button:hover {
+  background-color: #ffffff;
+}
+
+.navigation {
+  color: rgb(230, 230, 230);
+  font-size: 30px;
+}
+
+.navigation .li {
+  color: rgb(196, 196, 196);
+}
+
+.icons {
+  color: rgb(255, 0, 0);
+  font-size: 30px;
+  display: flexbox;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #fefeff;
+}
