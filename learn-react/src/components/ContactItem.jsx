@@ -1,8 +1,9 @@
+// ContactItem.jsx
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function ContactItem({ contact }) {
+function ContactItem({ contact, onDelete }) {
   return (
     <div className="note">
       <h3>
@@ -21,6 +22,7 @@ ContactItem.propTypes = {
     body: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired, // Tambahkan properti createdAt
   }).isRequired,
+  onDelete: PropTypes.func.isRequired, // Tambahkan properti onDelete
 };
 
 export default ContactItem;

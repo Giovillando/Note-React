@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ContactItem from "../components/ContactItem";
-import { getArchivedNotes } from "../utils/data";
+import { getArchivedNotes } from "../utils/api";
 
 function ArchivePage() {
   const [archivedContacts, setArchivedContacts] = useState([]);
 
   useEffect(() => {
-    const archivedNotes = getArchivedNotes();
-    setArchivedContacts(archivedNotes);
+    async function fetchArchivedContacts() {
+      const { data } = await getArchivedNotes();
+      setArchivedContacts(data);
+    }
+    fetchArchivedContacts();
   }, []);
 
   return (

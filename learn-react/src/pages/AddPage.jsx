@@ -1,21 +1,21 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import ContactInput from "../components/ContactInput";
-import { addContact } from "../utils/data";
+import { useNavigate } from "react-router-dom";
+import { addNote } from "../utils/api";
 
 function AddPage() {
   const navigate = useNavigate();
 
-  const handleAddContact = (newContact) => {
-    addContact(newContact);
+  function onAddContactHandler(contact) {
+    addNote(contact);
     navigate("/");
-  };
+  }
 
   return (
-    <div>
-      <h2>Add New Contact</h2>
-      <ContactInput onAddContact={handleAddContact} />
-    </div>
+    <section>
+      <h2>Tambah kontak</h2>
+      <ContactInput onAddContact={onAddContactHandler} />
+    </section>
   );
 }
 

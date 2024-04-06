@@ -1,31 +1,47 @@
-import React, { useState, useEffect } from "react";
-import ContactItem from "../components/ContactItem";
-import { getAllNotes } from "../utils/data";
+import React from "react";
+import { useSearchParams } from "react-router-dom";
+import ContactList from "../components/ContactList";
+import SearchBar from "../components/SearchBar";
+import { deleteNote, getNote } from "../utils/api";
+import LocaleContext from "../contexts/LocaleContext";
 
 function HomePage() {
-  const [contacts, setContacts] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [contacts, setContacts] = React.useState([]);
+  const [keyword, setKeyword] = React.useState(() => {
+    return searchParams.get("keyword") || "";
+  });
+  const { locale } = React.useContext(LocaleContext);
 
-  useEffect(() => {
-    const allNotes = getAllNotes();
-    setContacts(allNotes);
+  React.useEffect(() => {
+    getNote().then(({ data }) => {
+      setContacts(data);
+    });
   }, []);
 
-  // Filter out archived contacts
-  const nonArchivedContacts = contacts.filter((contact) => !contact.archived);
+  async function onDeleteHandler(id) {
+    await deleteNote(id);
+
+    // update the contacts state from network.js
+    const { data } = await getNote();
+    setContacts(data);
+  }
+
+  function onKeywordChangeHandler(keyword) {
+    setKeyword(keyword);
+    setSearchParams({ keyword });
+  }
+
+  const filteredContacts = contacts.filter((contact) => {
+    return contact.name.toLowerCase().includes(keyword.toLowerCase());
+  });
 
   return (
-    <div>
-      <h2>Home</h2>
-      {nonArchivedContacts.length === 0 ? (
-        <p>No contacts found.</p>
-      ) : (
-        <div>
-          {nonArchivedContacts.map((contact) => (
-            <ContactItem key={contact.id} contact={contact} />
-          ))}
-        </div>
-      )}
-    </div>
+    <section>
+      <SearchBar keyword={keyword} keywordChange={onKeywordChangeHandler} />
+      <h2>{locale === "id" ? "Daftar Kontak" : "Contacts List"}</h2>
+      <ContactList contacts={filteredContacts} onDelete={onDeleteHandler} />
+    </section>
   );
 }
 
